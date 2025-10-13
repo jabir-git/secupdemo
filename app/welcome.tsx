@@ -7,36 +7,35 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function welcome() {
   return (
     <SafeAreaView style={{ flex: 1, alignItems: "center", padding: 20 }}>
-      <View style={{ position: "absolute", top: 10, left: 10 }}>
-        <Link href="/"></Link>
-      </View>
-      <View style={{ alignItems: "center", gap: 20 }}>
-        <Text style={{ fontSize: 30, fontWeight: "bold" }}>
-          welcome to SecUp
+      <View style={{ flex: 1, alignItems: "center", gap: 20 }}>
+        <Text style={{ fontSize: 30, fontWeight: "bold", textAlign: "center" }}>
+          Welcome to SecUp
         </Text>
         <Image
           source={require("../assets/secup/officier.png")}
-          style={{ width: 300, height: 300 }}
+          style={{ width: 200, height: 200 }}
           contentFit="contain"
           transition={1000}
         />
         <Text style={{ textAlign: "center", fontSize: 24 }}>
           Start a new traffic stop and fill in the details
         </Text>
-        <Link
-          href="/home"
-          style={{
-            backgroundColor: "#007AFF",
-            color: "white",
-            paddingVertical: 10,
-            paddingHorizontal: 20,
-            borderRadius: 10,
-            fontSize: 18,
-          }}
-        >
-          Next
-        </Link>
       </View>
+      <Link
+        href="/home"
+        style={{
+          backgroundColor: "#007AFF",
+          color: "white",
+          paddingVertical: 10,
+          paddingHorizontal: 20,
+          borderRadius: 20,
+          fontSize: 18,
+          width: 200,
+          textAlign: "center",
+        }}
+      >
+        Next
+      </Link>
     </SafeAreaView>
   );
 }

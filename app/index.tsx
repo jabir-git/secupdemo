@@ -1,4 +1,5 @@
 import { Checkbox } from "@futurejj/react-native-checkbox";
+import { Image } from "expo-image";
 import { Link } from "expo-router";
 import { useState } from "react";
 import { Text, TextInput, View } from "react-native";
@@ -22,6 +23,14 @@ export default function index() {
       >
         SecUp
       </Text>
+      <View style={{ alignItems: "center" }}>
+        <Image
+          source={require("../assets/secup/lock.png")}
+          style={{ width: 100, height: 100 }}
+          contentFit="contain"
+          transition={1000}
+        />
+      </View>
       <View style={{ flex: 1, justifyContent: "center" }}>
         <View style={{ alignItems: "center", marginBottom: 20 }}>
           <TextInput
@@ -33,7 +42,7 @@ export default function index() {
               borderColor: "#ccc",
               borderRadius: 10,
               padding: 10,
-              width: 250,
+              width: 280,
               backgroundColor: "#f9f9f9",
             }}
           />
@@ -47,7 +56,7 @@ export default function index() {
               borderColor: "#ccc",
               borderRadius: 10,
               padding: 10,
-              width: 250,
+              width: 280,
               backgroundColor: "#f9f9f9",
             }}
           />
@@ -57,7 +66,6 @@ export default function index() {
             flexDirection: "row",
             alignItems: "center",
             marginBottom: 20,
-            paddingLeft: 20,
           }}
         >
           <Checkbox
@@ -66,20 +74,30 @@ export default function index() {
           />
           <Text style={{ marginLeft: 8 }}>Remember me</Text>
         </View>
-        <Link href="/welcome" style={{
-          backgroundColor: "#007AFF",
-          padding: 15,
-          borderRadius: 10,
-          alignItems: "center",
-          marginBottom: 20,
-          color: "#fff",
-          fontWeight: "bold",
-          textAlign: "center",
-        }}>Login</Link>
-        <Link href="/" style={{
-          color: "#007AFF",
-          textAlign: "center",
-        }}>Forgot password?</Link>
+        <Link
+          href="/welcome"
+          style={{
+            backgroundColor: "#007AFF",
+            padding: 15,
+            borderRadius: 10,
+            alignItems: "center",
+            marginBottom: 20,
+            color: "#fff",
+            fontWeight: "bold",
+            textAlign: "center",
+          }}
+        >
+          Login
+        </Link>
+        <Link
+          href="/"
+          style={{
+            color: "#007AFF",
+            textAlign: "center",
+          }}
+        >
+          Forgot password?
+        </Link>
       </View>
     </SafeAreaView>
   );
