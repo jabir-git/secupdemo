@@ -6,8 +6,15 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function welcome() {
   return (
-    <SafeAreaView style={{ flex: 1, alignItems: "center", padding: 20 }}>
-      <View style={{ flex: 1, alignItems: "center", gap: 20 }}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        alignItems: "center",
+        padding: 20,
+        backgroundColor: "#fff",
+      }}
+    >
+      <View style={{ alignItems: "center", gap: 20 }}>
         <Text style={{ fontSize: 30, fontWeight: "bold", textAlign: "center" }}>
           Welcome to SecUp
         </Text>
@@ -21,21 +28,23 @@ export default function welcome() {
           Start a new traffic stop and fill in the details
         </Text>
       </View>
-      <Link
-        href="/home"
-        style={{
-          backgroundColor: "#007AFF",
-          color: "white",
-          paddingVertical: 10,
-          paddingHorizontal: 20,
-          borderRadius: 20,
-          fontSize: 18,
-          width: 200,
-          textAlign: "center",
-        }}
-      >
-        Next
-      </Link>
+      <View style={{ flex: 1, justifyContent: "flex-end" }}>
+        <Link
+          href="/home"
+          style={{
+            backgroundColor: "#0080009a",
+            color: "white",
+            paddingVertical: 10,
+            paddingHorizontal: 20,
+            borderRadius: 20,
+            fontSize: 18,
+            width: 200,
+            textAlign: "center",
+          }}
+        >
+          Next
+        </Link>
+      </View>
     </SafeAreaView>
   );
 }

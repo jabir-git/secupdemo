@@ -1,19 +1,24 @@
 import { Image } from "expo-image";
 import { Link } from "expo-router";
-import { ScrollView, Text, View } from "react-native";
+import { Text, View } from "react-native";
 
 export default function Options() {
   interface Option {
     title: string;
-    image: any;
-    href: `/scanPlaque` | `/alertes` | `/interventions` | `/profil`;
+    image: string;
+    href: `/scanLicense` | `/alertes` | `/interventions` | `/profil`;
   }
 
   const options: Array<Option> = [
     {
+      title: "Profil",
+      image: require("../../assets/secup/profil.png"),
+      href: "/profil",
+    },
+    {
       title: "Scan plaque",
       image: require("../../assets/secup/scan-plaque.png"),
-      href: "/scanPlaque",
+      href: "/scanLicense",
     },
     {
       title: "Alertes",
@@ -25,45 +30,39 @@ export default function Options() {
       image: require("../../assets/secup/interventions.png"),
       href: "/interventions",
     },
-    {
-      title: "Profil",
-      image: require("../../assets/secup/profil.png"),
-      href: "/profil",
-    },
   ];
   return (
-    <ScrollView contentContainerStyle={{ alignItems: "center" }}>
+    <View style={{ flexDirection: "column", gap: 20 }}>
       {options.map((option, index) => (
-        <Link
-          key={index}
-          href={option.href}
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            marginBottom: 20,
-            borderWidth: 1,
-            borderColor: "#ccc",
-            borderRadius: 10,
-            padding: 10,
-            width: 250,
-            backgroundColor: "#f9f9f9",
-          }}
-        >
-          <Image
-            source={option.image}
+        <Link key={index} href={option.href}>
+          <View
             style={{
-              width: 20,
-              height: 20,
-              marginRight: 30,
+              flexDirection: "row",
+              alignItems: "center",
+              borderWidth: 1,
+              gap: 20,
+              borderColor: "#ccc",
+              borderRadius: 10,
+              padding: 10,
+              width: 250,
+              backgroundColor: "#f9f9f9",
             }}
-            contentFit="contain"
-            transition={1000}
-          />
-          <View>
-            <Text style={{ fontSize: 18 }}>{option.title}</Text>
+          >
+            <Image
+              source={option.image}
+              style={{
+                width: 30,
+                height: 30,
+              }}
+              contentFit="contain"
+              transition={1000}
+            />
+            <View>
+              <Text style={{ fontSize: 18 }}>{option.title}</Text>
+            </View>
           </View>
         </Link>
       ))}
-    </ScrollView>
+    </View>
   );
 }
