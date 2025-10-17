@@ -10,7 +10,7 @@ export default function welcome() {
       style={{
         flex: 1,
         alignItems: "center",
-        padding: 20,
+        padding: 5,
         backgroundColor: "#fff",
       }}
     >

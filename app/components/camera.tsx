@@ -75,7 +75,7 @@ export default function Camera({ onPlateDetected }: Props) {
               backgroundColor: "#0080009a",
               paddingHorizontal: 20,
               paddingVertical: 6,
-              borderRadius: 20,
+              borderRadius: 8,
             }}
             onPress={simulateScan}
           >

@@ -1,6 +1,7 @@
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Options from "./components/options";
+
 
 export default function Alertes() {
   return (
@@ -10,10 +11,10 @@ export default function Alertes() {
         backgroundColor: "#fff",
       }}
     >
-      <View style={{ flex: 1, padding: 20 }}>
+      <ScrollView style={{ flex: 1, padding: 5 }}>
         <Text>Alertes</Text>
-      </View>
-      <View style={{ padding: 20, paddingTop: 10 }}>
+      </ScrollView>
+      <View>
         <Options activeTab="alertes" />
       </View>
     </SafeAreaView>

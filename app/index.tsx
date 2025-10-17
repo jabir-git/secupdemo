@@ -39,7 +39,7 @@ export default function Index() {
     setChecked(!checked);
   };
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff", padding: 20 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff", padding: 5 }}>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -60,7 +60,7 @@ export default function Index() {
               />
             </View>
           )}
-          <View style={{ justifyContent: "center", gap: 20 }}>
+          <View style={{ justifyContent: "center", gap: 20,padding:10 }}>
             <View style={{ alignItems: "center", gap: 20 }}>
               <TextInput
                 placeholder="E-mail"
@@ -70,7 +70,7 @@ export default function Index() {
                   borderColor: "#ccc",
                   borderRadius: 10,
                   padding: 15,
-                  width: 280,
+                  width: "100%",
                   backgroundColor: "#f9f9f9",
                 }}
               />
@@ -83,7 +83,7 @@ export default function Index() {
                   borderColor: "#ccc",
                   borderRadius: 10,
                   padding: 15,
-                  width: 280,
+                  width: "100%",
                   backgroundColor: "#f9f9f9",
                 }}
               />
