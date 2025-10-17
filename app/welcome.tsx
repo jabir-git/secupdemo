@@ -30,7 +30,7 @@ export default function welcome() {
       </View>
       <View style={{ flex: 1, justifyContent: "flex-end" }}>
         <Link
-          href="/home"
+          href="/alertes"
           style={{
             backgroundColor: "#0080009a",
             color: "white",

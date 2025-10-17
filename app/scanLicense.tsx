@@ -1,49 +1,30 @@
-import { Link } from "expo-router";
-import React, { useState } from "react";
-import { Text, View } from "react-native";
+import React from "react";
+import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Camera from "./components/camera";
+import Options from "./components/options";
 
 export default function ScanPlaque() {
-
   return (
     <SafeAreaView
       style={{
         flex: 1,
-        alignItems: "center",
-        padding: 20,
         backgroundColor: "#fff",
       }}
     >
       <View
         style={{
-          paddingBottom: 10,
-          alignSelf: "flex-start",
+          flex: 1,
+          alignItems: "center",
+          padding: 20,
         }}
       >
-        <Link href="/home">
-          <View
-            style={{
-              backgroundColor: "#0080009a",
-              paddingHorizontal: 20,
-              paddingVertical: 6,
-              borderRadius: 20,
-            }}
-          >
-            <Text
-              style={{
-                fontWeight: "bold",
-                fontSize: 24,
-                color: "white",
-              }}
-            >
-              ←
-            </Text>
-          </View>
-        </Link>
+        <View style={{ width: "100%", height: 340 }}>
+          <Camera />
+        </View>
       </View>
-      <View style={{ width: "100%", height: 340 }}>
-        <Camera />
+      <View style={{ padding: 20, paddingTop: 10 }}>
+        <Options activeTab="scanLicense" />
       </View>
     </SafeAreaView>
   );

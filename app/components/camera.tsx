@@ -79,7 +79,7 @@ export default function Camera({ onPlateDetected }: Props) {
             }}
             onPress={simulateScan}
           >
-            <Text style={{ color: "white", paddingVertical:6 }}>Scan</Text>
+            <Text style={{ color: "white", paddingVertical: 6 }}>Scan</Text>
           </Pressable>
         </View>
       </View>
