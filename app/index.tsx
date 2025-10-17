@@ -6,15 +6,18 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
+  StyleSheet,
   Text,
   TextInput,
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import useTheme from "./hooks/useTheme";
 
 export default function Index() {
   const [checked, setChecked] = useState(false);
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
+  const { colors } = useTheme();
 
   useEffect(() => {
     const showEvent =
@@ -38,93 +41,55 @@ export default function Index() {
   const toggleCheckbox = () => {
     setChecked(!checked);
   };
+
+  const styles = createStyles(colors);
+
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff", padding: 5 }}>
+    <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView
-        style={{ flex: 1 }}
+        style={styles.keyboardView}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         keyboardVerticalOffset={20}
       >
-        <View style={{ flex: 1 }}>
+        <View style={styles.mainContent}>
           {!isKeyboardVisible && (
-            <View
-              style={{
-                alignItems: "center",
-              }}
-            >
+            <View style={styles.logoContainer}>
               <Image
                 source={require("../assets/secup/secup-logo.png")}
-                style={{ width: 150, height: 150 }}
+                style={styles.logo}
                 contentFit="contain"
                 transition={1000}
               />
             </View>
           )}
-          <View style={{ justifyContent: "center", gap: 20,padding:10 }}>
-            <View style={{ alignItems: "center", gap: 20 }}>
+          <View style={styles.formContainer}>
+            <View style={styles.inputContainer}>
               <TextInput
                 placeholder="E-mail"
-                placeholderTextColor="#888"
-                style={{
-                  borderWidth: 1,
-                  borderColor: "#ccc",
-                  borderRadius: 10,
-                  padding: 15,
-                  width: "100%",
-                  backgroundColor: "#f9f9f9",
-                }}
+                placeholderTextColor={colors.placeholder}
+                style={styles.input}
               />
               <TextInput
                 placeholder="Password"
-                placeholderTextColor="#888"
+                placeholderTextColor={colors.placeholder}
                 secureTextEntry
-                style={{
-                  borderWidth: 1,
-                  borderColor: "#ccc",
-                  borderRadius: 10,
-                  padding: 15,
-                  width: "100%",
-                  backgroundColor: "#f9f9f9",
-                }}
+                style={styles.input}
               />
             </View>
 
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 8,
-              }}
-            >
+            <View style={styles.checkboxContainer}>
               <Checkbox
                 status={checked ? "checked" : "unchecked"}
                 onPress={toggleCheckbox}
               />
-              <Text>Remember me</Text>
+              <Text style={styles.checkboxText}>Remember me</Text>
             </View>
 
-            <View style={{ flexDirection: "column", gap: 15 }}>
-              <Link
-                href="/welcome"
-                style={{
-                  backgroundColor: "#0080009a",
-                  padding: 15,
-                  borderRadius: 10,
-                  alignItems: "center",
-                  color: "#fff",
-                  fontWeight: "bold",
-                  textAlign: "center",
-                }}
-              >
+            <View style={styles.buttonContainer}>
+              <Link href="/welcome" style={styles.loginButton}>
                 Login
               </Link>
-              <Link
-                href="/"
-                style={{
-                  color: "#007AFF",
-                  textAlign: "center",
-                }}
-              >
+              <Link href="/" style={styles.forgotPasswordLink}>
                 Forgot password?
               </Link>
             </View>
@@ -134,3 +99,68 @@ export default function Index() {
     </SafeAreaView>
   );
 }
+
+const createStyles = (colors: any) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background,
+      padding: 5,
+    },
+    keyboardView: {
+      flex: 1,
+    },
+    mainContent: {
+      flex: 1,
+    },
+    logoContainer: {
+      alignItems: "center",
+    },
+    logo: {
+      width: 150,
+      height: 150,
+    },
+    formContainer: {
+      justifyContent: "center",
+      gap: 20,
+      padding: 10,
+    },
+    inputContainer: {
+      alignItems: "center",
+      gap: 20,
+    },
+    input: {
+      borderWidth: 1,
+      borderColor: colors.inputBorder,
+      borderRadius: 10,
+      padding: 15,
+      width: "100%",
+      backgroundColor: colors.inputBackground,
+      color: colors.text,
+    },
+    checkboxContainer: {
+      flexDirection: "row",
+      alignItems: "center",
+      gap: 8,
+    },
+    checkboxText: {
+      color: colors.text,
+    },
+    buttonContainer: {
+      flexDirection: "column",
+      gap: 15,
+    },
+    loginButton: {
+      backgroundColor: colors.primary,
+      padding: 15,
+      borderRadius: 10,
+      alignItems: "center",
+      color: colors.primaryText,
+      fontWeight: "bold",
+      textAlign: "center",
+    },
+    forgotPasswordLink: {
+      color: colors.link,
+      textAlign: "center",
+    },
+  });

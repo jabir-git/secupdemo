@@ -2,6 +2,7 @@ import { Image } from "expo-image";
 import { useRouter } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import useTheme from "../hooks/useTheme";
 
 type TabOption = {
   id: string;
@@ -43,10 +44,13 @@ interface OptionsProps {
 
 export default function Options({ activeTab }: OptionsProps) {
   const router = useRouter();
+  const { colors } = useTheme();
 
   const handleTabPress = (tab: TabOption) => {
     router.push(tab.route as any);
   };
+
+  const styles = createStyles(colors);
 
   return (
     <View style={styles.container}>
@@ -80,55 +84,57 @@ export default function Options({ activeTab }: OptionsProps) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    padding: 5,
-    borderTopWidth:1,
-    borderColor:"#ddd",
-    gap: 8,
-  },
-  tabButton: {
-    flex: 1,
-    padding:10,
-    borderRadius: 10,
-    backgroundColor: "transparent",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  activeTabButton: {
-    backgroundColor: "#008000",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
+const createStyles = (colors: any) =>
+  StyleSheet.create({
+    container: {
+      flexDirection: "row",
+      justifyContent: "space-around",
+      alignItems: "center",
+      padding: 5,
+      borderTopWidth: 1,
+      borderColor: colors.tabBorder,
+      gap: 8,
+      backgroundColor: colors.background,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  tabContent: {
-    alignItems: "center",
-    gap: 4,
-  },
-  icon: {
-    width: 28,
-    height: 28,
-    tintColor: "#666",
-  },
-  activeIcon: {
-    tintColor: "#fff",
-  },
-  tabText: {
-    fontSize: 11,
-    fontWeight: "600",
-    color: "#666",
-    textAlign: "center",
-  },
-  activeTabText: {
-    color: "#fff",
-    fontWeight: "700",
-  },
-});
+    tabButton: {
+      flex: 1,
+      padding: 10,
+      borderRadius: 10,
+      backgroundColor: colors.tabBackground,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    activeTabButton: {
+      backgroundColor: colors.activeTabBackground,
+      shadowColor: colors.shadow,
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+      elevation: 5,
+    },
+    tabContent: {
+      alignItems: "center",
+      gap: 4,
+    },
+    icon: {
+      width: 28,
+      height: 28,
+      tintColor: colors.tabIcon,
+    },
+    activeIcon: {
+      tintColor: colors.activeTabIcon,
+    },
+    tabText: {
+      fontSize: 11,
+      fontWeight: "600",
+      color: colors.tabText,
+      textAlign: "center",
+    },
+    activeTabText: {
+      color: colors.activeTabText,
+      fontWeight: "700",
+    },
+  });

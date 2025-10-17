@@ -1,18 +1,16 @@
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Options from "./components/options";
-
+import useTheme from "./hooks/useTheme";
 
 export default function Alertes() {
+  const { colors } = useTheme();
+  const styles = createStyles(colors);
+
   return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        backgroundColor: "#fff",
-      }}
-    >
-      <ScrollView style={{ flex: 1, padding: 5 }}>
-        <Text>Alertes</Text>
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
+        <Text style={styles.text}>Alertes</Text>
       </ScrollView>
       <View>
         <Options activeTab="alertes" />
@@ -20,3 +18,18 @@ export default function Alertes() {
     </SafeAreaView>
   );
 }
+
+const createStyles = (colors: any) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background,
+    },
+    scrollView: {
+      flex: 1,
+      padding: 5,
+    },
+    text: {
+      color: colors.text,
+    },
+  });
