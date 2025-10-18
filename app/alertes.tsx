@@ -10,7 +10,7 @@ export default function Alertes() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <Text style={styles.text}>Alertes</Text>
+        <Text style={styles.infoText}>Alertes</Text>
       </ScrollView>
       <View>
         <Options activeTab="alertes" />
@@ -29,6 +29,7 @@ const createStyles = (colors: any) =>
       flex: 1,
       padding: 5,
     },
+    infoText: { fontSize: 16, fontWeight: "700", color: colors.text },
     text: {
       color: colors.text,
     },

@@ -1,19 +1,20 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { StyleSheet, View, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import AccountParams from "./components/accountParams";
 import Options from "./components/options";
 import useTheme from "./hooks/useTheme";
 
-export default function Interventions() {
+export default function Profile() {
   const { colors } = useTheme();
   const styles = createStyles(colors);
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
-        <Text style={styles.infoText}>Interventions</Text>
-      </ScrollView>
+      <Text style={styles.infoText}>Officier profile</Text>
+      <AccountParams />
       <View>
-        <Options activeTab="interventions" />
+        <Options activeTab="profile" />
       </View>
     </SafeAreaView>
   );
@@ -23,13 +24,12 @@ const createStyles = (colors: any) =>
   StyleSheet.create({
     container: {
       flex: 1,
+      padding: 5,
       backgroundColor: colors.background,
     },
-    scrollView: {
-      flex: 1,
-      padding: 5,
-    },infoText: { fontSize: 16, fontWeight: "700", color: colors.text },
-    text: {
+    infoText: {
+      fontSize: 16,
+      fontWeight: "700",
       color: colors.text,
     },
   });

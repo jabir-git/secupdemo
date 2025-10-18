@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Camera from "./components/camera";
 import Options from "./components/options";
@@ -12,6 +12,7 @@ export default function ScanPlaque() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
+        <Text style={styles.infoText}>Scan license</Text>
         <View style={styles.cameraContainer}>
           <Camera />
         </View>
@@ -37,4 +38,5 @@ const createStyles = (colors: any) =>
       width: "100%",
       height: 340,
     },
+    infoText: { fontSize: 16, fontWeight: "700", color: colors.text },
   });

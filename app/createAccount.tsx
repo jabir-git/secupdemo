@@ -1,4 +1,3 @@
-import { Checkbox } from "@futurejj/react-native-checkbox";
 import { Link } from "expo-router";
 import { useEffect, useState } from "react";
 import {
@@ -13,7 +12,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import useTheme from "./hooks/useTheme";
 
-export default function Index() {
+export default function CreateAccount() {
   const [checked, setChecked] = useState(false);
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
   const { colors } = useTheme();
@@ -59,6 +58,16 @@ export default function Index() {
           <View style={styles.formContainer}>
             <View style={styles.inputContainer}>
               <TextInput
+                placeholder="First Name"
+                placeholderTextColor={colors.placeholder}
+                style={styles.input}
+              />
+              <TextInput
+                placeholder="Last Name"
+                placeholderTextColor={colors.placeholder}
+                style={styles.input}
+              />
+              <TextInput
                 placeholder="E-mail"
                 placeholderTextColor={colors.placeholder}
                 style={styles.input}
@@ -70,24 +79,15 @@ export default function Index() {
                 style={styles.input}
               />
             </View>
-            <View style={styles.checkboxContainer}>
-              <Checkbox
-                status={checked ? "checked" : "unchecked"}
-                onPress={toggleCheckbox}
-              />
-              <Text style={styles.checkboxText}>Remember me</Text>
-            </View>
+
             <View style={styles.buttonContainer}>
               <Link href="/alertes" style={styles.loginButton}>
-                Login
+                Sign Up
               </Link>
             </View>
             <View style={styles.linksContainer}>
-              <Link href="/changePassword" style={styles.redirectLink}>
-                Forgot Password?
-              </Link>
-              <Link href="/createAccount" style={styles.redirectLink}>
-                Don't have an account? Sign Up
+              <Link href="/" style={styles.redirectLink}>
+                Already have an account? Log In
               </Link>
             </View>
           </View>
@@ -96,7 +96,6 @@ export default function Index() {
     </SafeAreaView>
   );
 }
-
 const createStyles = (colors: any) =>
   StyleSheet.create({
     container: {
@@ -135,14 +134,6 @@ const createStyles = (colors: any) =>
       padding: 15,
       width: "100%",
       backgroundColor: colors.inputBackground,
-      color: colors.text,
-    },
-    checkboxContainer: {
-      flexDirection: "row",
-      alignItems: "center",
-      gap: 8,
-    },
-    checkboxText: {
       color: colors.text,
     },
     buttonContainer: {

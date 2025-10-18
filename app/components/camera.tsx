@@ -123,19 +123,17 @@ const createStyles = (colors: any) =>
       borderWidth: 1,
       borderColor: colors.inputBorder,
       borderRadius: 8,
-      paddingHorizontal: 12,
-      height: 40,
+      padding: 15,
       backgroundColor: colors.inputBackground,
       color: colors.text,
     },
     scanButton: {
-      backgroundColor: colors.primary,
-      paddingHorizontal: 20,
-      paddingVertical: 6,
+      backgroundColor: colors.link,
+      padding: 15,
       borderRadius: 8,
     },
     scanButtonText: {
       color: colors.primaryText,
-      paddingVertical: 6,
+      fontWeight: "600",
     },
   });

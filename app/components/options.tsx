@@ -20,21 +20,21 @@ const tabOptions: TabOption[] = [
   },
   {
     id: "scanLicense",
-    label: "Scan Plaque",
+    label: "Scan",
     icon: require("../../assets/secup/scan-plaque.png"),
     route: "/scanLicense",
   },
   {
     id: "interventions",
-    label: "Interventions",
+    label: "Catch",
     icon: require("../../assets/secup/interventions.png"),
     route: "/interventions",
   },
   {
-    id: "profil",
-    label: "Profil",
-    icon: require("../../assets/secup/profil.png"),
-    route: "/profil",
+    id: "profile",
+    label: "Profile",
+    icon: require("../../assets/secup/profile.png"),
+    route: "/profile",
   },
 ];
 
@@ -98,30 +98,22 @@ const createStyles = (colors: any) =>
     },
     tabButton: {
       flex: 1,
-      padding: 10,
-      borderRadius: 10,
+      padding: 5,
+      borderRadius: 8,
       backgroundColor: colors.tabBackground,
       alignItems: "center",
       justifyContent: "center",
     },
     activeTabButton: {
       backgroundColor: colors.activeTabBackground,
-      shadowColor: colors.shadow,
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-      elevation: 5,
     },
     tabContent: {
       alignItems: "center",
-      gap: 4,
+      gap: 2,
     },
     icon: {
-      width: 28,
-      height: 28,
+      width: 25,
+      height: 25,
       tintColor: colors.tabIcon,
     },
     activeIcon: {
@@ -135,6 +127,5 @@ const createStyles = (colors: any) =>
     },
     activeTabText: {
       color: colors.activeTabText,
-      fontWeight: "700",
     },
   });
